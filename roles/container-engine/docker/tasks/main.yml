@@ -74,9 +74,10 @@
 - name: Ensure docker-ce repository is enabled
   apt_repository:
     repo: "{{ item }}"
-    state: present
+    state: present  
   with_items: "{{ docker_repo_info.repos }}"
   when: ansible_pkg_mgr == 'apt'
+ 
 
 - name: Configure docker repository on Fedora
   template:
